@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exposé Groupe D - Développement d'Applications</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <title>Développement d'Applications en Côte d'Ivoire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
       :root {
-        --primary-color: #9370db;
-        --primary-dark: #7b68ee;
-        --primary-light: #b19cd9;
-        --white: #ffffff;
+        --primary-color: #f58634; /* Orange, couleur du drapeau ivoirien */
+        --secondary-color: #00853f; /* Vert, couleur du drapeau ivoirien */
+        --tertiary-color: #ffffff; /* Blanc, couleur du drapeau ivoirien */
         --text-dark: #333333;
         --gray-light: #f5f5f5;
         --gray: #e0e0e0;
@@ -33,8 +29,8 @@
       }
 
       header {
-        background-color: var(--primary-color);
-        color: var(--white);
+        background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+        color: var(--tertiary-color);
         padding: 1.5rem;
         text-align: center;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -52,7 +48,7 @@
       }
 
       nav {
-        background-color: var(--primary-dark);
+        background-color: var(--secondary-color);
         padding: 1rem;
         position: sticky;
         top: 0;
@@ -69,7 +65,7 @@
       }
 
       .nav-btn {
-        color: var(--white);
+        color: var(--tertiary-color);
         background: none;
         border: none;
         padding: 0.5rem 1rem;
@@ -82,19 +78,19 @@
 
       .nav-btn:hover,
       .nav-btn.active {
-        background-color: var(--white);
-        color: var(--primary-color);
+        background-color: var(--tertiary-color);
+        color: var(--secondary-color);
       }
 
       main {
-        max-width: 900px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 1rem;
       }
 
       .container {
         position: relative;
-        min-height: 60vh;
+        min-height: 70vh;
         margin-bottom: 2rem;
       }
 
@@ -104,7 +100,7 @@
         opacity: 0;
         transform: translateX(100%);
         transition: all 0.5s ease;
-        background-color: var(--white);
+        background-color: var(--tertiary-color);
         border-radius: 8px;
         padding: 1.5rem;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -128,7 +124,7 @@
       }
 
       h2 {
-        color: var(--primary-dark);
+        color: var(--secondary-color);
         font-size: 1.3rem;
         margin: 1rem 0 0.8rem;
       }
@@ -137,8 +133,7 @@
         margin-bottom: 1rem;
       }
 
-      ul,
-      ol {
+      ul, ol {
         margin-left: 1.5rem;
         margin-bottom: 1.2rem;
       }
@@ -153,6 +148,12 @@
         padding: 1.2rem;
         margin-bottom: 1.2rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       .card-header {
@@ -169,18 +170,26 @@
 
       .card-title {
         font-size: 1.2rem;
-        color: var(--primary-dark);
+        color: var(--secondary-color);
         margin: 0;
       }
 
       .price-tag {
         display: flex;
         justify-content: space-between;
-        background-color: var(--primary-light);
-        color: var(--white);
+        background-color: var(--primary-color);
+        color: var(--tertiary-color);
         padding: 0.5rem 1rem;
         border-radius: 4px;
         margin-bottom: 0.8rem;
+      }
+
+      .model-cards,
+      .trend-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.2rem;
+        margin: 1.5rem 0;
       }
 
       .pagination {
@@ -191,7 +200,7 @@
 
       .pagination-btn {
         background-color: var(--primary-color);
-        color: var(--white);
+        color: var(--tertiary-color);
         border: none;
         padding: 0.5rem 1rem;
         margin: 0 0.3rem;
@@ -202,7 +211,7 @@
       }
 
       .pagination-btn:hover {
-        background-color: var(--primary-dark);
+        background-color: var(--secondary-color);
       }
 
       .pagination-btn:disabled {
@@ -211,8 +220,8 @@
       }
 
       footer {
-        background-color: var(--primary-dark);
-        color: var(--white);
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        color: var(--tertiary-color);
         text-align: center;
         padding: 1rem;
         margin-top: 1.5rem;
@@ -233,17 +242,56 @@
         animation: fadeIn 0.5s ease forwards;
       }
 
-      @media screen and (max-width: 600px) {
+      .badge {
+        display: inline-block;
+        padding: 0.3rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+        background-color: var(--primary-color);
+        color: var(--tertiary-color);
+      }
+
+      .stat-box {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: var(--tertiary-color);
+        border-left: 4px solid var(--primary-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .stat-title {
+        font-weight: 600;
+      }
+
+      .stat-value {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+
+      @media screen and (max-width: 768px) {
+        .model-cards,
+        .trend-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-container {
+          flex-wrap: wrap;
+        }
+
         .nav-btn {
           margin: 0.2rem;
           padding: 0.4rem 0.8rem;
           font-size: 0.8rem;
         }
-
+        
         .section {
           padding: 1rem;
         }
-
+        
         h1 {
           font-size: 1.5rem;
         }
@@ -252,9 +300,9 @@
   </head>
   <body>
     <header>
-      <div class="logo">Exposé Groupe D</div>
+      <div class="logo">Développement d'Applications en Côte d'Ivoire</div>
       <div class="subtitle">
-        Développement d'Applications : Coûts, Tendances et Modèles Économiques
+        Coûts, Tendances et Modèles Économiques adaptés au marché ivoirien
       </div>
     </header>
 
@@ -262,6 +310,9 @@
       <div class="nav-container">
         <button class="nav-btn active" data-section="introduction">
           <i class="fas fa-info-circle"></i> Introduction
+        </button>
+        <button class="nav-btn" data-section="marche">
+          <i class="fas fa-chart-pie"></i> Marché
         </button>
         <button class="nav-btn" data-section="couts">
           <i class="fas fa-money-bill-wave"></i> Coûts
@@ -285,19 +336,23 @@
           <h1><i class="fas fa-info-circle"></i> Introduction</h1>
           <div class="card">
             <p>
-              Le développement d'applications est au cœur de la transformation
-              digitale des entreprises. Les applications sont devenues des
-              leviers incontournables pour l'engagement client et la
-              productivité.
+              La Côte d'Ivoire connaît une révolution numérique avec une adoption rapide des smartphones et une demande croissante pour des solutions digitales. Dans ce contexte, le développement d'applications représente une opportunité majeure pour les entreprises et entrepreneurs ivoiriens.
             </p>
-            <p>Questions principales abordées dans cet exposé :</p>
-            <ul>
-              <li><strong>Quel budget prévoir ?</strong></li>
-              <li><strong>Quelles technologies adopter ?</strong></li>
-              <li>
-                <strong>Comment rentabiliser son investissement ?</strong>
-              </li>
-            </ul>
+            <p>
+              Avec un taux de pénétration mobile de plus de 150% et un taux de pénétration internet atteignant 46,8% en 2023, le pays offre un terreau fertile pour les applications innovantes adaptées aux besoins locaux.
+            </p>
+            <div class="stat-box">
+              <span class="stat-title">Utilisateurs de smartphones</span>
+              <span class="stat-value">≈ 12,5 millions</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-title">Pénétration internet</span>
+              <span class="stat-value">46,8%</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-title">Croissance annuelle du secteur tech</span>
+              <span class="stat-value">+8,7%</span>
+            </div>
           </div>
           <div class="card">
             <div class="card-header">
@@ -305,23 +360,77 @@
               <h2 class="card-title">Objectifs de notre étude</h2>
             </div>
             <ul>
-              <li>
-                Établir des grilles tarifaires réalistes pour différents types
-                de projets
-              </li>
-              <li>Identifier les tendances technologiques actuelles</li>
-              <li>
-                Comprendre les modèles financiers viables pour les applications
-              </li>
+              <li>Analyser le marché spécifique du développement d'applications en Côte d'Ivoire</li>
+              <li>Établir des grilles tarifaires adaptées à l'économie locale</li>
+              <li>Identifier les tendances technologiques pertinentes pour le marché ivoirien</li>
+              <li>Explorer les modèles économiques viables dans le contexte local</li>
+              <li>Proposer des stratégies adaptées aux spécificités du marché ivoirien</li>
             </ul>
+          </div>
+        </section>
+
+        <!-- Section Marché -->
+        <section id="marche" class="section">
+          <h1><i class="fas fa-chart-pie"></i> Le marché ivoirien des applications</h1>
+          
+          <div class="card">
+            <div class="card-header">
+              <i class="fas fa-mobile-alt card-icon"></i>
+              <h2 class="card-title">État du marché</h2>
+            </div>
+            <p>
+              Le marché ivoirien des applications est en pleine expansion, porté par une population jeune (60% de moins de 25 ans), un accès croissant aux smartphones et le développement des infrastructures réseau 4G/5G.
+            </p>
+            <div class="stat-box">
+              <span class="stat-title">Taux d'équipement smartphone</span>
+              <span class="stat-value">≈ 48%</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-title">Abonnements internet mobile</span>
+              <span class="stat-value">22,4 millions</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-title">Applications développées localement</span>
+              <span class="stat-value">≈ 450</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <i class="fas fa-users card-icon"></i>
+              <h2 class="card-title">Secteurs porteurs</h2>
+            </div>
+            <ul>
+              <li><strong>Mobile Money et FinTech</strong> - Solutions de paiement et services financiers</li>
+              <li><strong>Agriculture</strong> - Applications pour les agriculteurs (prix, météo, conseils)</li>
+              <li><strong>Éducation</strong> - E-learning et contenus pédagogiques</li>
+              <li><strong>Commerce</strong> - E-commerce et places de marché locales</li>
+              <li><strong>Transport</strong> - VTC, livraison et logistique</li>
+              <li><strong>Santé</strong> - Télémédecine et accès aux soins</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <i class="fas fa-building card-icon"></i>
+              <h2 class="card-title">Écosystème Tech</h2>
+            </div>
+            <p>
+              L'écosystème tech ivoirien s'organise autour des hubs comme <strong>Orange Digital Center</strong>, <strong>Incub'Ivoir</strong>, et des initiatives comme <strong>Village des Technologies de l'Information et de la Biotechnologie (VITIB)</strong> à Grand-Bassam.
+            </p>
+            <p>
+              Plusieurs événements structurants comme <strong>Africa Web Festival</strong>, <strong>RIA (Rencontres de l'Intelligence Artificielle)</strong> à Abidjan, ou <strong>FEMUA Tech</strong> favorisent l'émergence de nouveaux projets et talents.
+            </p>
           </div>
         </section>
 
         <!-- Section Coûts -->
         <section id="couts" class="section">
-          <h1><i class="fas fa-money-bill-wave"></i> Coûts du développement</h1>
+          <h1>
+            <i class="fas fa-money-bill-wave"></i> Coûts du développement en Côte d'Ivoire
+          </h1>
 
-          <h2>Estimation des coûts en 2024</h2>
+          <h2>Estimation des coûts locaux (2024)</h2>
           <div class="card">
             <div class="card-header">
               <i class="fas fa-mobile-alt card-icon"></i>
@@ -329,11 +438,13 @@
             </div>
             <div class="price-tag">
               <span>Prix estimé :</span>
-              <span>5 000 € à 20 000 €</span>
+              <span>1,5 - 5 millions FCFA</span>
             </div>
             <p>
-              Applications avec peu de fonctionnalités, interfaces simples, peu
-              d'intégrations externes.
+              Applications avec fonctionnalités de base, interfaces simples, peu d'intégrations externes.
+            </p>
+            <p>
+              <strong>Exemples :</strong> Catalogues produits, outils de calcul, applications informatives
             </p>
           </div>
 
@@ -344,10 +455,13 @@
             </div>
             <div class="price-tag">
               <span>Prix estimé :</span>
-              <span>20 000 € à 50 000 €</span>
+              <span>5 - 15 millions FCFA</span>
             </div>
             <p>
-              Applications avec authentification utilisateur, intégrations API.
+              Applications avec authentification utilisateur, paiements simples, quelques intégrations API.
+            </p>
+            <p>
+              <strong>Exemples :</strong> E-commerce basique, applications de gestion, services de réservation
             </p>
           </div>
 
@@ -358,23 +472,34 @@
             </div>
             <div class="price-tag">
               <span>Prix estimé :</span>
-              <span>50 000 € à 150 000 €</span>
+              <span>15 - 30 millions FCFA</span>
             </div>
             <p>
-              Applications avec nombreuses fonctionnalités, intégrations
-              multiples, traitement de données complexe.
+              Applications avec nombreuses fonctionnalités, intégrations multiples (APIs, Mobile Money), traitement de données complexe.
+            </p>
+            <p>
+              <strong>Exemples :</strong> Applications FinTech, plateformes de mise en relation, systèmes de gestion avancés
             </p>
           </div>
 
-          <h2>Facteurs influençant le coût</h2>
+          <h2>Facteurs influençant le coût en Côte d'Ivoire</h2>
           <div class="card">
             <ul>
-              <li><strong>Technologies</strong> (native vs hybride vs PWA)</li>
-              <li><strong>Intégrations externes</strong> (API, IA, cloud)</li>
               <li>
-                <strong>Complexité du design</strong> et expérience utilisateur
+                <strong>Disponibilité des talents locaux</strong> - Pénurie de développeurs expérimentés entraînant des coûts plus élevés pour les expertises pointues
               </li>
-              <li><strong>Sécurité</strong> et conformité réglementaire</li>
+              <li>
+                <strong>Connectivité variable</strong> - Nécessité d'optimiser pour les zones à faible connectivité (≈35% de la population hors connexion internet)
+              </li>
+              <li>
+                <strong>Intégrations locales spécifiques</strong> - Mobile Money (Orange Money, MTN Mobile Money, Wave, Moov Money)
+              </li>
+              <li>
+                <strong>Adaptation multilingue</strong> - Français + langues locales selon la cible
+              </li>
+              <li>
+                <strong>Coûts d'hébergement</strong> - Souvent plus élevés qu'en Europe/Amérique pour les infrastructures locales
+              </li>
             </ul>
           </div>
         </section>
@@ -382,104 +507,204 @@
         <!-- Section Tendances -->
         <section id="tendances" class="section">
           <h1>
-            <i class="fas fa-chart-line"></i> Tendances techniques 2024-2025
+            <i class="fas fa-chart-line"></i> Tendances adaptées au marché ivoirien
           </h1>
 
-          <div class="card">
-            <div class="card-header">
-              <i class="fas fa-globe card-icon"></i>
-              <h2 class="card-title">Applications Web Progressives (PWA)</h2>
+          <div class="trend-cards">
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-wifi-slash card-icon"></i>
+                <h2 class="card-title">Applications "offline-first"</h2>
+              </div>
+              <ul>
+                <li>Fonctionnement sans connexion internet</li>
+                <li>Synchronisation lors du retour en ligne</li>
+                <li>Idéales pour les zones rurales et périurbaines</li>
+                <li>Consommation de données réduite</li>
+              </ul>
             </div>
-            <ul>
-              <li>Fonctionnent hors ligne et chargement rapide</li>
-              <li>Un seul développement pour toutes les plateformes</li>
-              <li>Moins coûteuses et plus rapides à déployer</li>
-            </ul>
-          </div>
 
-          <div class="card">
-            <div class="card-header">
-              <i class="fas fa-code card-icon"></i>
-              <h2 class="card-title">Frameworks multiplateformes</h2>
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-wallet card-icon"></i>
+                <h2 class="card-title">Intégration Mobile Money</h2>
+              </div>
+              <ul>
+                <li>Compatible avec Orange Money, MTN MoMo, Wave, Moov Money</li>
+                <li>Interfaces de paiement simplifiées</li>
+                <li>Essentiel pour l'e-commerce local</li>
+                <li>API nationales comme CinetPay ou YooMee</li>
+              </ul>
             </div>
-            <ul>
-              <li><strong>React Native et Flutter</strong></li>
-              <li>Un seul code pour Android et iOS</li>
-              <li>Réduction des délais et coûts de développement</li>
-            </ul>
-          </div>
 
-          <div class="card">
-            <div class="card-header">
-              <i class="fas fa-cubes card-icon"></i>
-              <h2 class="card-title">Low-Code / No-Code</h2>
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-lightbulb card-icon"></i>
+                <h2 class="card-title">Applications "light"</h2>
+              </div>
+              <ul>
+                <li>Optimisées pour smartphones d'entrée de gamme</li>
+                <li>Faible consommation de batterie</li>
+                <li>Taille réduite (<10MB)</li>
+                <li>Compatible Android 7+ (OS dominant en CI)</li>
+              </ul>
             </div>
-            <ul>
-              <li>Création d'applications avec peu ou pas de code</li>
-              <li>Accessible aux non-développeurs</li>
-              <li>Limitations pour les projets complexes</li>
-            </ul>
-          </div>
 
-          <div class="card">
-            <div class="card-header">
-              <i class="fas fa-brain card-icon"></i>
-              <h2 class="card-title">Intelligence Artificielle (IA)</h2>
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-comments card-icon"></i>
+                <h2 class="card-title">Support multilingue</h2>
+              </div>
+              <ul>
+                <li>Français et langues locales (Dioula, Baoulé)</li>
+                <li>Interfaces adaptées au multilinguisme</li>
+                <li>Contenus audio pour publics peu alphabétisés</li>
+                <li>Inclusion des zones rurales</li>
+              </ul>
             </div>
-            <ul>
-              <li>Personnalisation avancée et automatisation</li>
-              <li>Reconnaissance vocale et visuelle</li>
-              <li>Chatbots et assistants virtuels</li>
-            </ul>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-cubes card-icon"></i>
+                <h2 class="card-title">Solutions hybrides/PWA</h2>
+              </div>
+              <ul>
+                <li>Développement moins coûteux</li>
+                <li>Adaptation au contexte local plus rapide</li>
+                <li>Maintenance simplifiée</li>
+                <li>Frameworks comme Flutter et React Native</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-sun card-icon"></i>
+                <h2 class="card-title">Solutions solaires</h2>
+              </div>
+              <ul>
+                <li>Applications avec modes d'économie d'énergie</li>
+                <li>Compatibilité avec l'écosystème d'énergie solaire</li>
+                <li>Solutions pour zones à électrification limitée</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         <!-- Section Modèles économiques -->
         <section id="modeles" class="section">
-          <h1><i class="fas fa-puzzle-piece"></i> Modèles économiques</h1>
+          <h1>
+            <i class="fas fa-puzzle-piece"></i> Modèles économiques adaptés
+          </h1>
 
-          <h2><i class="fas fa-coins"></i> Monétisation</h2>
-          <div class="card">
-            <ul>
-              <li>
-                <strong>Freemium :</strong> Version gratuite + options payantes
-              </li>
-              <li>
-                <strong>Abonnement :</strong> Paiement récurrent pour accès aux
-                services
-              </li>
-              <li>
-                <strong>Achats intégrés :</strong> Achats ponctuels dans
-                l'application
-              </li>
-              <li>
-                <strong>Publicité :</strong> Intégration de publicités ciblées
-              </li>
-              <li>
-                <strong>Affiliation et partenariats :</strong> Commission sur
-                ventes générées
-              </li>
-            </ul>
+          <div class="model-cards">
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-handshake card-icon"></i>
+                <h2 class="card-title">Partenariats opérateurs</h2>
+              </div>
+              <p>
+                Collaboration avec Orange, MTN ou Moov pour la distribution et facturation via crédit téléphonique.
+              </p>
+              <p>
+                <strong>Points forts :</strong> Large audience, facturation simplifiée, distribution facilité
+              </p>
+              <p>
+                <strong>Exemples :</strong> Services à valeur ajoutée, contenus premium
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-hand-holding-usd card-icon"></i>
+                <h2 class="card-title">Freemium adapté</h2>
+              </div>
+              <p>
+                Version gratuite avec publicités ou fonctionnalités limitées + options premium à prix adaptés au marché local.
+              </p>
+              <p>
+                <strong>Points forts :</strong> Acquisition massive d'utilisateurs, monétisation progressive
+              </p>
+              <p>
+                <strong>Tarifs courants :</strong> 500-2000 FCFA/mois pour abonnements premium
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-building card-icon"></i>
+                <h2 class="card-title">B2B et SaaS local</h2>
+              </div>
+              <p>
+                Solutions pour entreprises locales avec facturation mensuelle ou annuelle.
+              </p>
+              <p>
+                <strong>Points forts :</strong> Revenus stables, clients moins sensibles au prix
+              </p>
+              <p>
+                <strong>Secteurs porteurs :</strong> Gestion commerciale, logistique, RH
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-ad card-icon"></i>
+                <h2 class="card-title">Publicité ciblée</h2>
+              </div>
+              <p>
+                Applications gratuites financées par la publicité, avec partenariats locaux spécifiques.
+              </p>
+              <p>
+                <strong>Points forts :</strong> Adapté au pouvoir d'achat local, accès gratuit
+              </p>
+              <p>
+                <strong>Partenaires :</strong> Entreprises ivoiriennes, multinationales implantées localement
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-landmark card-icon"></i>
+                <h2 class="card-title">Financements et subventions</h2>
+              </div>
+              <p>
+                Développement initial financé par des programmes d'aide ou investisseurs spécialisés dans le marché africain.
+              </p>
+              <p>
+                <strong>Sources :</strong> Afric'Innov, Orange Ventures Africa, Comoé Capital, CGECI Academy
+              </p>
+              <p>
+                <strong>Montants typiques :</strong> 5-50 millions FCFA
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <i class="fas fa-percentage card-icon"></i>
+                <h2 class="card-title">Commission sur transactions</h2>
+              </div>
+              <p>
+                Prélèvement d'un pourcentage sur les transactions facilitées par l'application (modèle marketplace).
+              </p>
+              <p>
+                <strong>Points forts :</strong> Alignement avec la création de valeur
+              </p>
+              <p>
+                <strong>Commissions courantes :</strong> 5-15% selon les secteurs
+              </p>
+            </div>
           </div>
 
-          <h2>
-            <i class="fas fa-hand-holding-usd"></i> Financement du développement
-          </h2>
           <div class="card">
+            <div class="card-header">
+              <i class="fas fa-lightbulb card-icon"></i>
+              <h2 class="card-title">Stratégies de distribution</h2>
+            </div>
             <ul>
-              <li>
-                <strong>Fonds propres ou levée de fonds :</strong> Capital
-                existant ou investisseurs
-              </li>
-              <li><strong>Crowdfunding :</strong> Financement participatif</li>
-              <li>
-                <strong>Subventions :</strong> Aides financières publiques ou
-                privées
-              </li>
-              <li>
-                <strong>Incubateurs et accélérateurs :</strong> Accompagnement
-                et réseaux
-              </li>
+              <li><strong>Ambassadeurs locaux</strong> - Activation terrain dans les quartiers et universités</li>
+              <li><strong>Partenariats avec écoles/universités</strong> - Pour applications éducatives ou de services</li>
+              <li><strong>Distribution via réseaux USSD</strong> - Pour toucher utilisateurs sans smartphones</li>
+              <li><strong>WhatsApp comme canal</strong> - Utilisation de la plateforme la plus populaire du pays</li>
+              <li><strong>Partenariats avec associations professionnelles</strong> - Pour applications B2B sectorielles</li>
             </ul>
           </div>
         </section>
@@ -490,140 +715,39 @@
 
           <div class="card">
             <p>
-              Le marché du développement d'applications est en constante
-              évolution. La réussite d'un projet repose sur l'équilibre entre
-              coût, performance, rentabilité et choix technologiques.
+              La Côte d'Ivoire représente un marché en pleine croissance pour le développement d'applications, avec des opportunités spécifiques nécessitant une adaptation aux réalités locales.
             </p>
 
             <h2>Points clés à retenir :</h2>
             <ul>
               <li>
-                Choisir la technologie en fonction des besoins réels et du
-                budget
+                <strong>Adapter les solutions technologiques</strong> aux contraintes locales (connectivité, appareils, énergie)
               </li>
-              <li>Adopter une démarche MVP (Minimum Viable Product)</li>
               <li>
-                Prévoir les coûts de maintenance (15-20% du coût initial/an)
+                <strong>Proposer des modèles tarifaires flexibles</strong> tenant compte du pouvoir d'achat local
               </li>
-              <li>Diversifier les sources de revenus</li>
               <li>
-                S'adapter aux nouvelles technologies (IA, PWA) pour rester
-                compétitif
+                <strong>Investir dans les applications "offline-first"</strong> pour desservir l'ensemble du territoire
+              </li>
+              <li>
+                <strong>Privilégier les intégrations avec écosystèmes existants</strong> (Mobile Money, opérateurs télécom)
+              </li>
+              <li>
+                <strong>Explorer les marchés B2B</strong> souvent plus rentables que le B2C
+              </li>
+              <li>
+                <strong>Considérer la diversité linguistique et culturelle</strong> dans le développement
               </li>
             </ul>
           </div>
 
           <div class="card">
             <div class="card-header">
-              <i class="fas fa-comment card-icon"></i>
-              <h2 class="card-title">Merci pour votre attention !</h2>
+              <i class="fas fa-road card-icon"></i>
+              <h2 class="card-title">Perspectives d'avenir</h2>
             </div>
-            <p style="text-align: center; font-size: 1.2rem">
-              Exposé réalisé par le Groupe D
+            <p>
+              Avec la stratégie nationale "Côte d'Ivoire Numérique 2025", le pays ambitionne de devenir un hub technologique régional, créant un environnement favorable au développement des applications et services numériques.
             </p>
-          </div>
-        </section>
-      </div>
-
-      <div class="pagination">
-        <button class="pagination-btn" id="prev-btn" disabled>
-          <i class="fas fa-chevron-left"></i> Précédent
-        </button>
-        <button class="pagination-btn" id="next-btn">
-          Suivant <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </main>
-
-    <footer>
-      <p>© 2025 Groupe D - Tous droits réservés</p>
-    </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const sections = document.querySelectorAll(".section");
-        const navButtons = document.querySelectorAll(".nav-btn");
-        const prevBtn = document.getElementById("prev-btn");
-        const nextBtn = document.getElementById("next-btn");
-        let currentIndex = 0;
-
-        function resetCardAnimations() {
-          document.querySelectorAll(".card").forEach((card) => {
-            card.classList.remove("animated");
-          });
-        }
-
-        function animateCards() {
-          const cards = document.querySelectorAll(".active .card");
-          cards.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add("animated");
-            }, index * 100);
-          });
-        }
-
-        function showSection(index) {
-          resetCardAnimations();
-
-          sections.forEach((section) => {
-            if (section.classList.contains("active")) {
-              section.style.transform = `translateX(${
-                index > currentIndex ? "-100%" : "100%"
-              })`;
-              section.style.opacity = "0";
-            }
-            section.classList.remove("active");
-          });
-
-          navButtons.forEach((btn) => {
-            btn.classList.remove("active");
-          });
-
-          currentIndex = index;
-
-          sections[index].classList.add("active");
-          sections[index].style.transform = "translateX(0)";
-          sections[index].style.opacity = "1";
-
-          navButtons[index].classList.add("active");
-
-          prevBtn.disabled = index === 0;
-          nextBtn.disabled = index === sections.length - 1;
-
-          setTimeout(animateCards, 300);
-        }
-
-        navButtons.forEach((btn, index) => {
-          btn.addEventListener("click", () => {
-            showSection(index);
-          });
-        });
-
-        prevBtn.addEventListener("click", () => {
-          if (currentIndex > 0) {
-            showSection(currentIndex - 1);
-          }
-        });
-
-        nextBtn.addEventListener("click", () => {
-          if (currentIndex < sections.length - 1) {
-            showSection(currentIndex + 1);
-          }
-        });
-
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowLeft" && currentIndex > 0) {
-            showSection(currentIndex - 1);
-          } else if (
-            e.key === "ArrowRight" &&
-            currentIndex < sections.length - 1
-          ) {
-            showSection(currentIndex + 1);
-          }
-        });
-
-        showSection(0);
-      });
-    </script>
-  </body>
-</html>
+            <p>
+              Les investissements dans les infrastructures (fibre optique, 5G) et l'amélioration du cadre ré
